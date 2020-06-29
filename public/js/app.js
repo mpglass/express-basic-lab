@@ -4,7 +4,8 @@ $.ajax({
     dataType: 'json',
 })
 .then(names => {
+    console.log(names)
     names.forEach(visitor => {
-        $('div').append(`<h1>${visitor.name}</h1>`)
+        $('#nameLog').append(`<h1>${visitor.name}</h1>`)
     })
 })
