@@ -20,19 +20,22 @@ app.post("/sign", (req, res) => {
     }
     const names = JSON.parse(data);
     names.push({ name: req.body.name });
-
-    fs.writeFile(
-      path.join(__dirname, "./data/names.json"),
-      JSON.stringify(names, null, 2),
-      (err) => {
-        if (err) {
-          console.log(err);
-          res.status(500).json({ msg: "Lady ate my code!" });
-        }
-        res.send("Thank you " + req.body.name + " for adding your name.");
-      }
-    );
+    res.send("file has been read")
   });
+});
+
+app.get("/sign", (req, res) => {
+  fs.writeFile(
+    path.join(__dirname, "./data/names.json"),
+    JSON.stringify(names, null, 2),
+    (err) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json({ msg: "Lady ate my code!" });
+      }
+      res.send("Thank you " + req.body.name + " for adding your name.");
+    }
+  );
 });
 
 // app.post('/formSubmissions/guests.json', (req, res) => {
