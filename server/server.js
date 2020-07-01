@@ -22,9 +22,6 @@ app.post("/sign", (req, res) => {
     names.push({ name: req.body.name });
     res.send("file has been read")
   });
-});
-
-app.get("/sign", (req, res) => {
   fs.writeFile(
     path.join(__dirname, "./data/names.json"),
     JSON.stringify(names, null, 2),
@@ -37,6 +34,8 @@ app.get("/sign", (req, res) => {
     }
   );
 });
+
+
 
 // app.post('/formSubmissions/guests.json', (req, res) => {
 //     console.log(req.body.email);
